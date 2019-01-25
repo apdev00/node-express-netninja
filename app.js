@@ -13,7 +13,12 @@ app.get('/contact', function(req, res) {
     res.sendFile(__dirname + '/contact.html');
 });
 app.get('/profile/:name', function(req, res) {
-    res.render('profile', { person: req.params.name });
+    var data = {
+        age: 29,
+        job: 'ninja',
+        hobbies: ['coding', 'boating', 'eating', 'beer']
+    }
+    res.render('profile', { person: req.params.name, data: data });
 });
 
 app.listen(3000);
