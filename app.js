@@ -6,11 +6,13 @@ var app = express();
 // set EJS as the template view engine
 app.set('view engine', 'ejs');
 
+app.use('/assets', express.static('assets'));
+
 app.get('/', function(req, res) {
-    res.sendFile(__dirname + '/index.html');
+    res.render('index');
 });
 app.get('/contact', function(req, res) {
-    res.sendFile(__dirname + '/contact.html');
+    res.render('contact');
 });
 app.get('/profile/:name', function(req, res) {
     var data = {
